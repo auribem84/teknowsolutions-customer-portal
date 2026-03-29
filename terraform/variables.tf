@@ -1,18 +1,22 @@
-# No necesitas asignarles un 'default' aquí, 
-# Terraform Cloud las llenará por ti al ejecutar el plan..
-
 variable "render_api_key" {
   type      = string
+  description = "API Key de Render (generada en Account Settings)"
   sensitive = true
-  default   = "rnd_5pytohBuTRMIbxyKpTo9zcXK7M2R"
 }
 
 variable "render_owner_id" {
   type      = string
-  default   = "usr-d6tjt6q4d50c73cc912g"
+  description = "ID del usuario o equipo en Render"
 }
 
 variable "repo_url" {
   type        = string
+  description = "URL del repositorio de GitHub del monorepo"
   default     = "https://github.com/auribem84/teknowsolutions-customer-portal"
+}
+
+variable "db_password" {
+  type      = string
+  sensitive = true
+  description = "Contraseña para el administrador de la base de datos"
 }
