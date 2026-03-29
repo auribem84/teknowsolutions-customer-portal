@@ -15,7 +15,7 @@ resource "render_web_service" "backend_api" {
   }
 
   env_vars = {
-    NODE_ENV = {
+    PYTHON_ENV = {
       value = "production"
     }
   }
