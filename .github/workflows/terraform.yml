@@ -32,6 +32,9 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
+      - name: List Terraform files
+        run: find . -name "*.tf" | sort
+
       - name: Terraform Plan
         run: terraform plan # -input=false
         env:
