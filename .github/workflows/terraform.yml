@@ -33,7 +33,10 @@ jobs:
         working-directory: ./terraform
 
       - name: Terraform Plan
-        run: terraform plan -input=false
+        run: terraform plan # -input=false
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_OWNER_ID: ${{ secrets.RENDER_OWNER_ID }}
         working-directory: ./terraform
 
       - name: Terraform Apply
