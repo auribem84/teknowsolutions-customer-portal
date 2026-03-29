@@ -15,6 +15,11 @@ jobs:
     name: "Terraform Apply"
     runs-on: ubuntu-latest
     
+    # Definimos las variables de entorno para que Terraform las reconozca
+    env:
+      TF_VAR_render_api_key: ${{ secrets.RENDER_API_KEY }}
+      TF_VAR_render_owner_id: ${{ secrets.RENDER_OWNER_ID }}
+
     # YA NO necesitas la sección env: con las llaves de Render aquí
     # porque Terraform Cloud las maneja internamente.
 
