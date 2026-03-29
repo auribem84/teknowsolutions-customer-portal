@@ -1,5 +1,5 @@
 # No necesitas asignarles un 'default' aquí, 
-# Terraform Cloud las llenará por ti al ejecutar el plan.
+# Terraform Cloud las llenará por ti al ejecutar el plan..
 
 variable "render_api_key" {
   type      = string
