@@ -1,22 +1,47 @@
 variable "render_api_key" {
-  type      = string
-  description = "API Key de Render (generada en Account Settings)"
-  sensitive = true
+  description = "Render API key. Set via TF_VAR_render_api_key or RENDER_API_KEY env var."
+  type        = string
+  sensitive   = true
 }
 
 variable "render_owner_id" {
-  type      = string
-  description = "ID del usuario o equipo en Render"
-}
-
-variable "repo_url" {
+  description = "Render owner/team ID (starts with usr_ or tea_). Found in Account Settings."
   type        = string
-  description = "URL del repositorio de GitHub del monorepo"
-  default     = "https://github.com/auribem84/teknowsolutions-customer-portal"
+  sensitive   = true
 }
 
-variable "db_password" {
-  type      = string
-  sensitive = true
-  description = "Contraseña para el administrador de la base de datos"
+variable "db_name" {
+  description = "Name for the PostgreSQL instance shown in the Render dashboard."
+  type        = string
+  default     = "my-postgres-db"
+}
+
+variable "db_database_name" {
+  description = "Name of the actual database created inside the instance."
+  type        = string
+  default     = "mydb"
+}
+
+variable "db_user" {
+  description = "Database user that will be created."
+  type        = string
+  default     = "mydb_admin"
+}
+
+variable "region" {
+  description = "Render region. Options: oregon, ohio, virginia, frankfurt, singapore."
+  type        = string
+  default     = "oregon"
+}
+
+variable "db_plan" {
+  description = "Postgres plan. Options: free, basic_256mb, basic_1gb, pro_4gb, etc."
+  type        = string
+  default     = "free"
+}
+
+variable "postgres_version" {
+  description = "PostgreSQL major version."
+  type        = string
+  default     = "16"
 }
