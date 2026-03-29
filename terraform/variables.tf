@@ -1,5 +1,5 @@
 variable "render_api_key" {
-  description = "Render API key. Set via TF_VAR_render_api_key or RENDER_API_KEY env var."
+  description = "Render API key. Set via TF_VAR_render_api_key env var."
   type        = string
   sensitive   = true
 }
@@ -29,19 +29,19 @@ variable "db_user" {
 }
 
 variable "region" {
-  description = "Render region. Options: oregon, ohio, virginia, frankfurt, singapore."
+  description = "Render region. Free plan supports: ohio. Paid plans: oregon, virginia, frankfurt, singapore."
   type        = string
-  default     = "oregon"
+  default     = "ohio"
 }
 
 variable "db_plan" {
-  description = "Postgres plan. Options: free, basic_256mb, basic_1gb, pro_4gb, etc."
+  description = "Postgres plan: free, basic_256mb, basic_1gb, pro_4gb, etc."
   type        = string
   default     = "free"
 }
 
 variable "postgres_version" {
-  description = "PostgreSQL major version."
+  description = "PostgreSQL major version. Free plan supports up to 16."
   type        = string
   default     = "16"
 }
