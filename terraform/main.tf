@@ -1,15 +1,15 @@
 resource "render_web_service" "backend_api" {
-  name   = "sre-backend-service"
-  plan   = "free"
-  region = "oregon"
+  name          = "sre-backend-service"
+  plan          = "starter"
+  region        = "oregon"
+  start_command = "uvicorn main:app --host 0.0.0.0 --port $PORT"
 
-  runtime_source {
-    native_runtime {
-      repo          = var.repo_url
+  runtime_source = {
+    native_runtime = {
+      repo_url      = var.repo_url
       branch        = "main"
       runtime       = "python"
       build_command = "pip install -r requirements.txt"
-      start_command = "uvicorn main:app --host 0.0.0.0 --port $PORT"
       auto_deploy   = true
     }
   }
